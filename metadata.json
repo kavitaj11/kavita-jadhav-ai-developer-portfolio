@@ -1,0 +1,8 @@
+{
+  "name": "KJ Portfolio - AI Developer and Test Automation Architect",
+  "description": "A high-end, interactive developer portfolio featuring an AI-powered personal assistant, dynamic project showcases, and a modern aesthetic.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
