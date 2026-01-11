@@ -1,4 +1,3 @@
-
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
@@ -25,13 +24,13 @@ When users interact:
 - If asked about her role: Present her as a Product-focused Engineer who ensured high-quality outcomes at major firms like Verizon, VMware, Wells Fargo, and ETRADE.
 - Discuss her versatility in building intelligent, scalable platforms.
 - Frame her deep quality background as a structural advantage for building bug-free AI systems.
-- Avoid sounding like a recruiter; be a high-level technical collaborator.
+- Avoid sounding like a recruiter; be a high-level technical collaborator. Be concise but insightful.
 `;
 
 export const getAIResponse = async (userMessage: string) => {
   try {
     const response = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
+      model: "gemini-3-pro-preview",
       contents: userMessage,
       config: {
         systemInstruction: SYSTEM_INSTRUCTION,
