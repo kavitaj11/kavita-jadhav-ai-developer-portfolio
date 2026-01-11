@@ -36,7 +36,7 @@ on:
 
 env:
   PROJECT_ID: 'gen-lang-client-0097168873' # Updated to your Google Cloud project ID
-  REGION: 'us-central1' # TODO: update to your region
+  REGION: 'us-south1' # Updated to your region
   SERVICE: 'kj-portfolio-app' # TODO: update to your service name
 
 jobs:
