@@ -45,11 +45,19 @@ jobs:
         run: gcloud auth configure-docker us-south1-docker.pkg.dev
 
 
+
       - name: Build Docker image
         run: docker build -t us-south1-docker.pkg.dev/gen-lang-client-0389869001/cloud-run-source-deploy/kavita-jadhav-ai-developer-portfolio .
 
       - name: Push Docker image
         run: docker push us-south1-docker.pkg.dev/gen-lang-client-0389869001/cloud-run-source-deploy/kavita-jadhav-ai-developer-portfolio
+
+      - name: Deploy with Google Cloud Deploy
+        run: |
+          gcloud deploy releases create RELEASE_NAME \
+            --delivery-pipeline=PIPELINE_NAME \
+            --region=us-south1 \
+            --images=APP_IMAGE=us-south1-docker.pkg.dev/gen-lang-client-0389869001/cloud-run-source-deploy/kavita-jadhav-ai-developer-portfolio
 
       - name: Deploy to Cloud Run
         uses: google-github-actions/deploy-cloudrun@v2
