@@ -40,6 +40,10 @@ jobs:
           service_account: 473606241068-compute@developer.gserviceaccount.com
 
 
+
+      - name: Authenticate Docker to Artifact Registry
+        run: gcloud auth configure-docker us-south1-docker.pkg.dev
+
       - name: Ensure Artifact Registry repository exists
         run: |
           gcloud artifacts repositories describe cloud-run-source-deploy --location=us-south1 || \
