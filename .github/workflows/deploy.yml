@@ -1,4 +1,4 @@
-name: Deploy Portfolio
+name: Deploy Portfolio to Cloud Run
 
 on:
   push:
@@ -35,13 +35,16 @@ jobs:
         id: auth
         uses: google-github-actions/auth@v2
         with:
-          # This value MUST be in format: projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/POOL_ID/providers/PROVIDER_ID
+          # This triggers the identity exchange
           workload_identity_provider: ${{ secrets.GCP_WIF_PROVIDER }}
           service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+          token_format: 'access_token'
 
-      - name: Setup GCloud SDK
-        uses: google-github-actions/setup-gcloud@v2
+      - name: Deploy to Cloud Run
+        uses: google-github-actions/deploy-cloudrun@v2
         with:
-          project_id: ${{ secrets.GCP_PROJECT_ID }}
-
- 
+          service: kavita-portfolio
+          region: us-central1
+          source: ./
+          env_vars: |
+            API_KEY=${{ secrets.API_KEY }}
