@@ -1,7 +1,9 @@
+options:
+  logging: CLOUD_LOGGING_ONLY
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/gen-lang-client-0389869001/kavita-jadhav-ai-developer-portfolio', '.']
+    args: ['build', '-t', 'us-south1-docker.pkg.dev/gen-lang-client-0389869001/cloud-run-source-deploy/kavita-jadhav-ai-developer-portfolio', '.']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/gen-lang-client-0389869001/kavita-jadhav-ai-developer-portfolio']
+    args: ['push', 'us-south1-docker.pkg.dev/gen-lang-client-0389869001/cloud-run-source-deploy/kavita-jadhav-ai-developer-portfolio']
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['run', 'deploy', 'kavita-jadhav-ai-developer-portfolio-git', '--image', 'gcr.io/gen-lang-client-0389869001/kavita-jadhav-ai-developer-portfolio', '--region', 'us-south1', '--platform', 'managed', '--logging', 'CLOUD_LOGGING_ONLY']
+    args: ['run', 'deploy', 'kavita-jadhav-ai-developer-portfolio-git', '--image', 'us-south1-docker.pkg.dev/gen-lang-client-0389869001/cloud-run-source-deploy/kavita-jadhav-ai-developer-portfolio', '--region', 'us-south1', '--platform', 'managed', '--logging', 'CLOUD_LOGGING_ONLY']
