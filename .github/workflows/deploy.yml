@@ -40,6 +40,11 @@ jobs:
           service_account: 473606241068-compute@developer.gserviceaccount.com
 
 
+      - name: Ensure Artifact Registry repository exists
+        run: |
+          gcloud artifacts repositories describe cloud-run-source-deploy --location=us-south1 || \
+          gcloud artifacts repositories create cloud-run-source-deploy --repository-format=docker --location=us-south1
+
       - name: Build Docker image
         run: docker build -t us-south1-docker.pkg.dev/gen-lang-client-0389869001/cloud-run-source-deploy/kavita-jadhav-ai-developer-portfolio .
 
