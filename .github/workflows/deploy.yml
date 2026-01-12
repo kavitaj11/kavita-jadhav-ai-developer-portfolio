@@ -37,14 +37,5 @@ jobs:
         with:
           # Format: projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/POOL_ID/providers/PROVIDER_ID
           # Use your ACTUAL numeric project number here
-          workload_identity_provider: ${{ secrets.GCP_WIF_PROVIDER }}
-          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
-
-      - name: Deploy to Hosting
-        # This is a generic deploy step. If using Firebase Hosting:
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
-          channelId: live
-          projectId: ${{ secrets.GCP_PROJECT_ID }}
+            workload_identity_provider: 'projects/233848188218/locations/global/workloadIdentityPools/k11-tech/providers/k11-tech-lab' # Updated to your Workload Identity Provider
+            service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
