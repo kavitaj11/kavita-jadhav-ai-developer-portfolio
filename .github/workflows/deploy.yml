@@ -31,11 +31,17 @@ jobs:
           # Note: Ensure these are defined in your environment/bundler
           VITE_API_KEY: ${{ secrets.API_KEY }}
 
+
       - name: Authenticate to Google Cloud
         id: auth
         uses: google-github-actions/auth@v2
         with:
-          # Format: projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/POOL_ID/providers/PROVIDER_ID
-          # Use your ACTUAL numeric project number here
-            workload_identity_provider: 'projects/233848188218/locations/global/workloadIdentityPools/k11-tech/providers/k11-tech-lab' # Updated to your Workload Identity Provider
-            service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+          workload_identity_provider: 'projects/233848188218/locations/global/workloadIdentityPools/k11-tech/providers/k11-tech-lab'
+          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+
+      - name: Deploy to Cloud Run
+        uses: google-github-actions/deploy-cloudrun@v2
+        with:
+          service: kavita-jadhav-ai-developer-portfolio
+          region: us-south1
+          source: .
