@@ -36,13 +36,20 @@ jobs:
         id: auth
         uses: google-github-actions/auth@v2
         with:
-          workload_identity_provider: 'projects/233848188218/locations/global/workloadIdentityPools/k11-tech/providers/k11-tech-lab'
-          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+          workload_identity_provider: 'projects/473606241068/locations/global/workloadIdentityPools/k11-tech-lab/providers/k11-tech-lab'
+          service_account: 473606241068-compute@developer.gserviceaccount.com
+
+
+      - name: Build Docker image
+        run: docker build -t gcr.io/gen-lang-client-0389869001/kavita-jadhav-ai-developer-portfolio .
+
+      - name: Push Docker image
+        run: docker push gcr.io/gen-lang-client-0389869001/kavita-jadhav-ai-developer-portfolio
 
       - name: Deploy to Cloud Run
         uses: google-github-actions/deploy-cloudrun@v2
         with:
-          service: kavita-jadhav-ai-developer-portfolio
+          service: kavita-jadhav-ai-developer-portfolio-git
           region: us-south1
-          source: .
+          image: gcr.io/gen-lang-client-0389869001/kavita-jadhav-ai-developer-portfolio
           logging: CLOUD_LOGGING_ONLY
