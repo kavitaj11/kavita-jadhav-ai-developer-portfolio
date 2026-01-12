@@ -45,3 +45,4 @@ jobs:
           service: kavita-jadhav-ai-developer-portfolio
           region: us-south1
           source: .
+          logging: CLOUD_LOGGING_ONLY
