@@ -41,15 +41,15 @@ jobs:
 
 
       - name: Build Docker image
-        run: docker build -t gcr.io/gen-lang-client-0389869001/kavita-jadhav-ai-developer-portfolio .
+        run: docker build -t us-south1-docker.pkg.dev/gen-lang-client-0389869001/cloud-run-source-deploy/kavita-jadhav-ai-developer-portfolio .
 
       - name: Push Docker image
-        run: docker push gcr.io/gen-lang-client-0389869001/kavita-jadhav-ai-developer-portfolio
+        run: docker push us-south1-docker.pkg.dev/gen-lang-client-0389869001/cloud-run-source-deploy/kavita-jadhav-ai-developer-portfolio
 
       - name: Deploy to Cloud Run
         uses: google-github-actions/deploy-cloudrun@v2
         with:
           service: kavita-jadhav-ai-developer-portfolio-git
           region: us-south1
-          image: gcr.io/gen-lang-client-0389869001/kavita-jadhav-ai-developer-portfolio
+          image: us-south1-docker.pkg.dev/gen-lang-client-0389869001/cloud-run-source-deploy/kavita-jadhav-ai-developer-portfolio
           logging: CLOUD_LOGGING_ONLY
