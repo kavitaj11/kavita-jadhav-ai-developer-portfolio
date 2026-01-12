@@ -31,7 +31,6 @@ jobs:
           # Note: Ensure these are defined in your environment/bundler
           VITE_API_KEY: ${{ secrets.API_KEY }}
 
-
       - name: Authenticate to Google Cloud
         id: auth
         uses: google-github-actions/auth@v2
@@ -39,18 +38,8 @@ jobs:
           workload_identity_provider: 'projects/473606241068/locations/global/workloadIdentityPools/k11-tech-lab/providers/k11-tech-lab'
           service_account: 473606241068-compute@developer.gserviceaccount.com
 
-
-
-      - name: Authenticate Docker to Artifact Registry
-        run: gcloud auth configure-docker us-south1-docker.pkg.dev
-
-
-
-      - name: Build Docker image
-        run: docker build -t us-south1-docker.pkg.dev/gen-lang-client-0389869001/cloud-run-source-deploy/kavita-jadhav-ai-developer-portfolio .
-
-      - name: Push Docker image
-        run: docker push us-south1-docker.pkg.dev/gen-lang-client-0389869001/cloud-run-source-deploy/kavita-jadhav-ai-developer-portfolio
+      - name: Build and Push Docker image with Cloud Build
+        run: gcloud builds submit --region=us-south1 --config=cloudbuild.yaml .
 
       - name: Deploy with Google Cloud Deploy
         run: |
