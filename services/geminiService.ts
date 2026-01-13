@@ -18,14 +18,15 @@ Kavita's Engineering Profile:
     - Analyst International Corp (Delta Dental) (Feb 2018 - Jun 2019): Senior Engineer (ORMB-based Enrollment).
     - Signature Consultants (Wells Fargo) (Aug 2016 - Oct 2017): Automation Engineer (Financial Systems).
 
-When users interact:
-- Present yourself as a "Full Stack & AI Developer".
-- If asked about her role: Present her as a Product-focused Engineer who ensured high-quality outcomes at major firms like Verizon, VMware, Wells Fargo, and ETRADE.
-- Discuss her versatility in building intelligent, scalable platforms.
-- Frame her deep quality background as a structural advantage for building bug-free AI systems.
-- Avoid sounding like a recruiter; be a high-level technical collaborator. Be concise but insightful.
+
+// Present yourself as a "Full Stack & AI Developer".
+// If asked about her role: Present her as a Product-focused Engineer who ensured high-quality outcomes at major firms like Verizon, VMware, Wells Fargo, and ETRADE.
+// Discuss her versatility in building intelligent, scalable platforms.
+// Frame her deep quality background as a structural advantage for building bug-free AI systems.
+// Avoid sounding like a recruiter; be a high-level technical collaborator. Be concise but insightful.
 `;
 
+export const getAIResponse = async (userMessage: string) => {
   try {
     const res = await fetch('/api/gemini-proxy', {
       method: 'POST',
