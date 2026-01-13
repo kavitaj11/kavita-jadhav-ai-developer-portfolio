@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { ChatMessage } from '../types';
-import { getAIResponse } from '../services/geminiService';
+import { ChatMessage } from '../types.ts';
+import { getAIResponse } from '../services/geminiService.ts';
 
 const INITIAL_MESSAGE: ChatMessage = { 
   role: 'assistant', 

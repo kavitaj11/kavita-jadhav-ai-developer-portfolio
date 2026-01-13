@@ -1,21 +1,33 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Kavita Jadhav | Full Stack & AI Developer Portfolio
 
-# Run and deploy your AI Studio app
+This is a high-end, interactive portfolio site featuring a digital AI twin, dynamic project filtering, and a modern "Glassmorphism" aesthetic.
 
-This contains everything you need to run your app locally.
+## 🚀 Features
+- **AI Digital Twin:** Interactive chat powered by Google Gemini (Gemini 3 Pro) trained on my engineering philosophy.
+- **Dynamic Projects:** Categorized showcase of Full Stack, AI, and Test Automation work.
+- **Modern Stack:** React 19, Tailwind CSS, TypeScript, and Google GenAI SDK.
+- **CI/CD Ready:** Pre-configured GitHub Actions for deployment to Google Cloud Run.
 
-View your app in AI Studio: https://ai.studio/apps/drive/1yYewW4CWCncMtdmO7esXTX0e9yFY5WO_
+## 🛠️ Local Setup
 
-## Run Locally
+1. **Install Dependencies:**
+   ```bash
+   npm install
+   ```
 
-**Prerequisites:**  Node.js
+2. **Set API Key:**
+   Create a `.env` file (or export in terminal):
+   ```bash
+   export API_KEY="your_gemini_api_key"
+   ```
 
+3. **Run Development Server:**
+   ```bash
+   npm run dev
+   ```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
-Triggered Cloud Run deployment on us-south1 via GitHub Actions.
+## ☁️ Deployment
+This project is configured for **Google Cloud Run** via Workload Identity Federation. See `docs/GCP_DEPLOYMENT_GUIDE.md` for full instructions.
+
+## 📄 License
+MIT

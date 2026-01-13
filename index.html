@@ -3,8 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kavita Jadhav | Senior SDET & AI Quality Architect</title>
-    <meta name="description" content="A high-end, interactive developer portfolio featuring an AI-powered personal assistant, dynamic project showcases, and a modern aesthetic.">
+    <title>Kavita Jadhav | Full Stack & AI Developer</title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Kavita Jadhav | Full Stack & AI Developer">
+    <meta name="description" content="Senior Software Engineer specializing in Full Stack Architecture, Generative AI, and Quality Assurance. Discover mission-critical projects and interactive AI twins.">
+    <meta name="keywords" content="Software Engineer, AI Developer, Full Stack, React, Node.js, Python, Test Automation, Gemini API, Quality Architect">
+    <meta name="author" content="Kavita Jadhav">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kavitajadhav.tech/"> <!-- Update this once you have your custom URL -->
+    <meta property="og:title" content="Kavita Jadhav | Full Stack & AI Developer">
+    <meta property="og:description" content="Architecting resilient digital products with a focus on AI integration and systemic quality. Explore the portfolio.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/kavitaj11/portfolio/main/public/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://kavitajadhav.tech/">
+    <meta property="twitter:title" content="Kavita Jadhav | Full Stack & AI Developer">
+    <meta property="twitter:description" content="Architecting resilient digital products with a focus on AI integration and systemic quality.">
+    <meta property="twitter:image" content="https://raw.githubusercontent.com/kavitaj11/portfolio/main/public/og-image.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -12,6 +32,7 @@
         theme: {
           extend: {
             colors: {
+              cobalt: '#3b82f6',
               gray: {
                 950: '#030712',
               }
@@ -21,7 +42,7 @@
       }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -70,7 +91,6 @@
             0%, 60%, 100% { transform: translateY(0); }
             30% { transform: translateY(-6px); }
         }
-        /* Offset for fixed navbar */
         section[id] {
             scroll-margin-top: 100px;
         }
@@ -85,8 +105,10 @@
   }
 }
 </script>
+<link rel="stylesheet" href="/index.css">
 </head>
 <body>
     <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
 </body>
 </html>

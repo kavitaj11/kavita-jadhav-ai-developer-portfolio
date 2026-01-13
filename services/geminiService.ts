@@ -1,6 +1,12 @@
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+const apiKey = process.env.API_KEY;
+
+if (!apiKey) {
+  console.warn("⚠️ GEMINI_API_KEY is missing from environment variables. AI features will be disabled.");
+}
+
+const ai = new GoogleGenAI({ apiKey: apiKey || '' });
 
 const SYSTEM_INSTRUCTION = `
 You are the AI Digital Twin of Kavita Jadhav, a sophisticated Software Engineer specializing in Full Stack Development and Artificial Intelligence.
@@ -28,20 +34,23 @@ When users interact:
 `;
 
 export const getAIResponse = async (userMessage: string) => {
+  if (!apiKey) {
+    return "The neural link (API Key) is not configured yet. Please check the environment variables!";
+  }
+
   try {
     const response = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
+      model: "gemini-3-pro-preview",
       contents: userMessage,
       config: {
         systemInstruction: SYSTEM_INSTRUCTION,
-        temperature: 0.8,
-        topP: 0.95,
+        temperature: 0.7,
       },
     });
 
-    return response.text || "I'm currently recalibrating my responses. Please try again in a moment.";
+    return response.text || "I'm refining my response to ensure maximum clarity. Could you try rephrasing?";
   } catch (error) {
     console.error("Gemini API Error:", error);
-    return "My neural link is momentarily offline. Please connect with Kavita via LinkedIn for direct inquiries.";
+    return "My neural link is currently under maintenance. Please connect with Kavita on LinkedIn for direct inquiries!";
   }
 };
