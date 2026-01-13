@@ -30,17 +30,18 @@ When users interact:
 export const getAIResponse = async (userMessage: string) => {
   try {
     const response = await ai.models.generateContent({
-      model: "gemini-3-pro-preview",
+      model: "gemini-3-flash-preview",
       contents: userMessage,
       config: {
         systemInstruction: SYSTEM_INSTRUCTION,
-        temperature: 0.7,
+        temperature: 0.8,
+        topP: 0.95,
       },
     });
 
-    return response.text || "I'm refining my response to ensure maximum clarity. Could you try rephrasing?";
+    return response.text || "I'm currently recalibrating my responses. Please try again in a moment.";
   } catch (error) {
     console.error("Gemini API Error:", error);
-    return "My neural link is currently under maintenance. Please connect with Kavita on LinkedIn for direct inquiries!";
+    return "My neural link is momentarily offline. Please connect with Kavita via LinkedIn for direct inquiries.";
   }
 };
