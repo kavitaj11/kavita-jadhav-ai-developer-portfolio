@@ -1,13 +1,5 @@
-import { GoogleGenAI } from "@google/genai";
 
-
-const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-
-if (!apiKey) {
-  console.warn("⚠️ VITE_GEMINI_API_KEY is missing from environment variables. AI features will be disabled.");
-}
-
-const ai = new GoogleGenAI({ apiKey: apiKey || '' });
+// Calls backend proxy instead of GoogleGenAI directly
 
 const SYSTEM_INSTRUCTION = `
 You are the AI Digital Twin of Kavita Jadhav, a sophisticated Software Engineer specializing in Full Stack Development and Artificial Intelligence.
@@ -34,24 +26,27 @@ When users interact:
 - Avoid sounding like a recruiter; be a high-level technical collaborator. Be concise but insightful.
 `;
 
-export const getAIResponse = async (userMessage: string) => {
-  if (!apiKey) {
-    return "The neural link (API Key) is not configured yet. Please check the environment variables!";
-  }
-
   try {
-    const response = await ai.models.generateContent({
-      model: "gemini-3-pro-preview",
-      contents: userMessage,
-      config: {
-        systemInstruction: SYSTEM_INSTRUCTION,
-        temperature: 0.7,
-      },
+    const res = await fetch('/api/gemini-proxy', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: "gemini-3-pro-preview",
+        contents: userMessage,
+        config: {
+          systemInstruction: SYSTEM_INSTRUCTION,
+          temperature: 0.7,
+        },
+      })
     });
-
-    return response.text || "I'm refining my response to ensure maximum clarity. Could you try rephrasing?";
+    const data = await res.json();
+    if (data && data.text) {
+      return data.text;
+    }
+    // fallback for Gemini API error or unexpected response
+    return data.candidates?.[0]?.content?.parts?.[0]?.text || "I'm refining my response to ensure maximum clarity. Could you try rephrasing?";
   } catch (error) {
-    console.error("Gemini API Error:", error);
+    console.error("Gemini Proxy Error:", error);
     return "My neural link is currently under maintenance. Please connect with Kavita on LinkedIn for direct inquiries!";
   }
 };
