@@ -45,5 +45,7 @@ jobs:
           service: kavita-portfolio
           region: us-central1
           source: ./
+          labels: |
+            dev-tutorial=blog-devcommunity2026
           env_vars: |
             API_KEY=${{ secrets.API_KEY }}
