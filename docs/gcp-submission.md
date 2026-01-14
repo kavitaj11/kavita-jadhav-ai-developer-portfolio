@@ -4,8 +4,6 @@
 I'm Kavita Jadhav, a Full Stack & AI Developer with 12+ years of experience in building scalable, intelligent platforms. My portfolio showcases my passion for quality-first engineering, modern web development, and practical AI integration. I aim to express my technical versatility and commitment to impactful solutions.
 
 ## Portfolio
-<!-- Embed Cloud Run deployment here using the instructions from https://dev.to/devteam/you-can-now-embed-cloud-run-deployments-directly-in-your-dev-posts-1jk8 -->
-
 {% embed https://kj-portfolio-ai-developer-and-test-automation-arc-473606241068.us-west1.run.app/ %}
 
 ## How I Built It
@@ -21,6 +19,3 @@ I'm Kavita Jadhav, a Full Stack & AI Developer with 12+ years of experience in b
 - Clean, modern UI with personal branding
 - Automated deployment pipeline to Cloud Run
 - Strong type safety and maintainable code structure
-
-
-

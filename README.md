@@ -38,8 +38,14 @@ This is a high-end, interactive portfolio site featuring a digital AI twin, dyna
 
 - **Dev Post (Portfolio Challenge):** [AI-Powered Portfolio: Full Stack Developer Showcase with Google Gemini & Cloud Run](https://dev.to/kavitaj11/ai-powered-portfolio-full-stack-developer-showcase-with-google-gemini-cloud-run-2aaj)
 
-## ☁️ Deployment
-This project is configured for **Google Cloud Run** via Workload Identity Federation. See `docs/GCP_DEPLOYMENT_GUIDE.md` for full instructions.
+## ☁️ Deployment & Docs
+This project is configured for **Google Cloud Run** via Workload Identity Federation. See [project documentation](docs/README.md) for deployment and submission guides.
 
 ## 📄 License
 MIT
+
+## 📬 Contact
+
+For consulting, training, or implementation support:  
+🔗 [k11softwaresolutions.com](https://www.k11softwaresolutions.com)  
+📧 k11softwaresolutions@outlook.com

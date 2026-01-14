@@ -1,3 +1,4 @@
+
 # Google Cloud Deployment Guide (Service Account Method)
 
 This is the most reliable way to deploy to Cloud Run if Workload Identity Federation (WIF) is causing `invalid_target` or `PERMISSION_DENIED` errors.
@@ -7,11 +8,11 @@ This is the most reliable way to deploy to Cloud Run if Workload Identity Federa
 2.  Click **Create Service Account**.
 3.  Name it `github-deployer`.
 4.  Grant it the following roles:
-    - `Cloud Run Admin`
-    - `Storage Admin`
-    - `Service Account User`
-    - `Cloud Build Editor`
-    - `Artifact Registry Administrator`
+	- `Cloud Run Admin`
+	- `Storage Admin`
+	- `Service Account User`
+	- `Cloud Build Editor`
+	- `Artifact Registry Administrator`
 
 ## 2. Generate a Key
 1.  In the Service Accounts list, click on your new account.
@@ -29,3 +30,4 @@ Add these to **Settings > Secrets and variables > Actions**:
 
 ## 4. Push to Deploy
 The next push to `main` will use this key to authenticate directly, bypassing the WIF provider configuration errors.
+
