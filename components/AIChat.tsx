@@ -4,7 +4,7 @@ import { getAIResponse } from '../services/geminiService.ts';
 
 const INITIAL_MESSAGE: ChatMessage = { 
   role: 'assistant', 
-  content: "Welcome! I'm Kavita's digital twin. I can discuss her approach to Full Stack architecture, her work as an AI Developer building systems like WeOptimize.ai, or her mission-critical engineering experience at Verizon and VMware. What's on your mind today?" 
+  content: "Welcome! I'm Kavita's digital twin. I can discuss her approach to Full Stack architecture, her work as an AI Developer building high-performance systems like the AI Model Evaluation Framework, or her mission-critical engineering experience at firms like VMware and ETRADE. What's on your mind today?" 
 };
 
 const THINKING_STATUSES = [
