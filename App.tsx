@@ -146,21 +146,15 @@ const App: React.FC = () => {
       const isFullStack = tags.some(t => t.includes('full-stack') || t.includes('fullstack'));
       const isAI = tags.some(t => t === 'ai');
       const isQuality = tags.some(t => t.includes('quality') || t.includes('bdd') || t.includes('selenium') || t.includes('testing') || t.includes('assurance'));
-      // Remove selenium and other non-DB/pure-backend projects
       if (isFullStack || isAI || isQuality) return false;
-      
-      // Specifically allow only Rumi Tracker and Greenspot DB for the Backend filter
       const isTargetBackend = project.id === 'rumi-press-tracker' || project.id === 'greenspot-db';
       if (!isTargetBackend) return false;
     }
 
     return project.tags.some(tag => {
       const tagLower = tag.toLowerCase();
-      // Heuristic match for categories
       if (filterLower === 'frontend' && (tagLower.includes('react') || tagLower.includes('next.js') || tagLower.includes('frontend'))) return true;
       if (filterLower === 'backend' && (tagLower.includes('django') || tagLower.includes('python') || tagLower.includes('node.js') || tagLower.includes('sql') || tagLower.includes('database') || tagLower.includes('db design') || tagLower.includes('java') || tagLower.includes('backend'))) return true;
-      
-      // Logic for Quality and AI Assurance Automation
       if (filterLower === 'quality and ai assurance automation' && (
         tagLower.includes('quality') || 
         tagLower.includes('bdd') || 
@@ -169,7 +163,6 @@ const App: React.FC = () => {
         tagLower.includes('assurance') || 
         tagLower.includes('promptfoo')
       )) return true;
-
       return tagLower.includes(filterLower);
     });
   });
@@ -179,7 +172,7 @@ const App: React.FC = () => {
       <Navbar theme={theme} onToggleTheme={toggleTheme} />
 
       {/* Hero Section */}
-      <section className="relative pt-48 pb-32 px-6 overflow-hidden">
+      <section className="relative pt-48 pb-16 px-6 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-6xl pointer-events-none opacity-20 dark:opacity-40">
            <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] animate-float"></div>
            <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-purple-600/10 rounded-full blur-[100px] animate-float" style={{ animationDelay: '-3s' }}></div>
@@ -208,13 +201,88 @@ const App: React.FC = () => {
             Blending high-performance Full Stack architecture with advanced Generative AI and a relentless focus on systemic quality.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a href="#projects" className="px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-black text-[11px] font-bold uppercase tracking-widest rounded-xl hover:shadow-2xl hover:translate-y-[-2px] transition-all">
+          <div className="flex flex-wrap gap-4 justify-center items-center">
+            <a href="#summary" className="px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-black text-[11px] font-bold uppercase tracking-widest rounded-xl hover:shadow-2xl hover:translate-y-[-2px] transition-all">
+              Executive Summary
+            </a>
+            <a href="#projects" className="px-8 py-4 glass text-gray-900 dark:text-white text-[11px] font-bold uppercase tracking-widest rounded-xl hover:bg-black/5 dark:hover:bg-white/5 transition-all">
               Engineering Work
             </a>
-            <a href="#experience" className="px-8 py-4 glass text-gray-900 dark:text-white text-[11px] font-bold uppercase tracking-widest rounded-xl hover:bg-black/5 dark:hover:bg-white/5 transition-all">
+            <a href="#experience" className="px-8 py-4 glass text-blue-600 dark:text-blue-400 text-[11px] font-bold uppercase tracking-widest rounded-xl border-blue-600/20 hover:bg-blue-600/5 transition-all">
               Professional Path
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Summary Section */}
+      <section id="summary" className="py-24 px-6 relative">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+            <div>
+              <h2 className="text-xl font-bold mb-2 text-gray-900 dark:text-white tracking-tight uppercase">Executive Summary</h2>
+              <div className="h-0.5 w-12 bg-blue-600 mb-4"></div>
+              <p className="text-gray-500 dark:text-gray-400 text-xs max-w-xs">A synthesis of architecture, intelligence, and reliability.</p>
+            </div>
+            <div className="text-gray-400 dark:text-gray-600 mono text-[10px] font-bold uppercase tracking-[0.2em]">Summary / Context</div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+            <div className="space-y-6">
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white leading-tight">
+                Architecting the future with <span className="gradient-text">Precision and Purpose.</span>
+              </h3>
+              <div className="space-y-4 text-gray-500 dark:text-gray-400 text-sm md:text-base leading-relaxed">
+                <p>
+                  With over 12 years of mission-critical software engineering experience, my career has been defined by a relentless pursuit of **systemic quality**. I have spent a decade ensuring the reliability of enterprise-scale platforms for industry giants like **VMware, ETRADE, and Verizon**.
+                </p>
+                <p>
+                  Today, I leverage that deep foundation in "Engineering Assurance" to build the next generation of intelligent systems. As the founder of **K11 Software Solutions**, I specialize in bridging the gap between high-performance Full Stack development and the emerging frontier of **Generative AI**.
+                </p>
+                <p>
+                  My work focuses on building platforms that aren't just intelligent, but resilient—implementing advanced RAG architectures, agentic workflows, and the rigorous LLM evaluation frameworks (like Promptfoo) necessary for production-grade AI deployment.
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="glass p-6 rounded-3xl border-gray-100 dark:border-gray-800/50 flex flex-col justify-between">
+                <div>
+                  <div className="w-10 h-10 bg-blue-600/10 rounded-xl flex items-center justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+                  </div>
+                  <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">12+ Years</h4>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">Of high-fidelity engineering experience in fintech, telecom, and commerce.</p>
+                </div>
+              </div>
+              <div className="glass p-6 rounded-3xl border-gray-100 dark:border-gray-800/50 flex flex-col justify-between">
+                <div>
+                  <div className="w-10 h-10 bg-purple-600/10 rounded-xl flex items-center justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-purple-600"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+                  </div>
+                  <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">AI Expert</h4>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">Pioneer in LLM Assurance and red-teaming for production-ready agents.</p>
+                </div>
+              </div>
+              <div className="glass p-6 rounded-3xl border-gray-100 dark:border-gray-800/50 flex flex-col justify-between">
+                <div>
+                  <div className="w-10 h-10 bg-green-600/10 rounded-xl flex items-center justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-green-600"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+                  </div>
+                  <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Quality Architect</h4>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">Lead transformation resulting in 80% reduction in regression time across ETRADE systems.</p>
+                </div>
+              </div>
+              <div className="glass p-6 rounded-3xl border-gray-100 dark:border-gray-800/50 flex flex-col justify-between">
+                <div>
+                  <div className="w-10 h-10 bg-orange-600/10 rounded-xl flex items-center justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-orange-600"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                  </div>
+                  <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Visionary</h4>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">Dedicated to building resilient digital products that empower business growth.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -224,7 +292,7 @@ const App: React.FC = () => {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
             <div>
-              <h2 className="text-xl font-bold mb-2 text-gray-900 dark:text-white tracking-tight uppercase">Selected Works</h2>
+              <h2 className="text-xl font-bold mb-2 text-gray-900 dark:text-white tracking-tight uppercase">Engineering Work</h2>
               <div className="h-0.5 w-12 bg-blue-600 mb-4"></div>
               <p className="text-gray-500 dark:text-gray-400 text-xs max-w-xs">Building scalable platforms, intelligent agents, and high-quality infrastructures.</p>
             </div>
@@ -248,7 +316,7 @@ const App: React.FC = () => {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {filteredProjects.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}
@@ -266,7 +334,7 @@ const App: React.FC = () => {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
             <div>
-              <h2 className="text-xl font-bold mb-2 text-gray-900 dark:text-white tracking-tight uppercase">Experience Architecture</h2>
+              <h2 className="text-xl font-bold mb-2 text-gray-900 dark:text-white tracking-tight uppercase">Professional Path</h2>
               <div className="h-0.5 w-12 bg-blue-600 mb-4"></div>
               <p className="text-gray-500 dark:text-gray-400 text-xs max-w-xs">A decade of delivering mission-critical solutions in complex domains.</p>
             </div>

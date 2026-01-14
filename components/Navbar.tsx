@@ -9,6 +9,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
+    { name: 'Summary', href: '#summary' },
     { name: 'Projects', href: '#projects' },
     { name: 'Experience', href: '#experience' },
     { name: 'Skills', href: '#skills' },
@@ -20,12 +21,12 @@ const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme }) => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-[100] flex justify-center p-4 md:p-6 pointer-events-none">
       <div className="glass w-full max-w-7xl px-5 md:px-8 py-4 rounded-3xl flex items-center justify-between shadow-2xl relative pointer-events-auto border-white/30 bg-slate-900/90">
-        {/* Logo - Positioned firmly to the left */}
+        {/* Logo */}
         <a href="#" className="flex-shrink-0 font-black text-2xl md:text-3xl lg:text-4xl tracking-tighter text-white flex items-center gap-1 group mr-4">
           K<span className="text-cobalt font-serif italic group-hover:rotate-12 transition-transform">J</span>
         </a>
         
-        {/* Full Desktop Menu - Visible on XL screens for maximum comfort */}
+        {/* Desktop Menu */}
         <div className="hidden xl:flex gap-8 items-center">
           {navItems.map((item) => (
             <a
@@ -38,7 +39,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme }) => {
           ))}
         </div>
 
-        {/* Scaled Desktop Menu - Visible on Large screens */}
+        {/* Medium/Large Scaled Menu */}
         <div className="hidden lg:flex xl:hidden gap-5 items-center">
           {navItems.map((item) => (
             <a
@@ -51,7 +52,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme }) => {
           ))}
         </div>
 
-        {/* Compact Desktop Menu - Visible on Medium screens (first 4 items only) */}
+        {/* Small Desktop Menu */}
         <div className="hidden md:flex lg:hidden gap-4 items-center">
           {navItems.slice(0, 4).map((item) => (
             <a
@@ -91,7 +92,6 @@ const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme }) => {
             Connect
           </a>
 
-          {/* Mobile Menu Toggle - Visible on lg and smaller to provide access to all items */}
           <button 
             className="xl:hidden p-2 text-white"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -102,7 +102,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme }) => {
           </button>
         </div>
 
-        {/* Mobile/Tablet Menu Dropdown */}
+        {/* Mobile Menu Dropdown */}
         {isMenuOpen && (
           <div className="absolute top-full left-0 right-0 mt-6 glass rounded-[2rem] p-8 md:p-10 shadow-[0_30px_70px_rgba(0,0,0,0.8)] animate-in slide-in-from-top-4 duration-300 xl:hidden border-white/20 bg-slate-900/95">
             <div className="flex flex-col gap-6 md:gap-8">
