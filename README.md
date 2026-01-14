@@ -1,5 +1,5 @@
 
-![Portfolio Screenshot](assets/screenshot/screenshot1.png)
+![Portfolio Screenshot](assets/Screenshots/Screenshot1.jpg)
 
 # Kavita Jadhav | Full Stack & AI Developer Portfolio
 
