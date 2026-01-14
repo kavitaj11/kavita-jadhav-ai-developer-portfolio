@@ -1,3 +1,6 @@
+
+![Portfolio Screenshot](assets/screenshot/screenshot1.png)
+
 # Kavita Jadhav | Full Stack & AI Developer Portfolio
 
 This is a high-end, interactive portfolio site featuring a digital AI twin, dynamic project filtering, and a modern "Glassmorphism" aesthetic.
@@ -25,6 +28,15 @@ This is a high-end, interactive portfolio site featuring a digital AI twin, dyna
    ```bash
    npm run dev
    ```
+
+
+## 🌐 Live Demo
+
+- **GCP Cloud Run:** [https://kj-portfolio-ai-developer-and-test-automation-arc-473606241068.us-west1.run.app/](https://kj-portfolio-ai-developer-and-test-automation-arc-473606241068.us-west1.run.app/)
+
+- **Vercel:** [https://kavita-jadhav-portfolio-app.vercel.app/](https://kavita-jadhav-portfolio-app.vercel.app/)
+
+- **Dev Post (Portfolio Challenge):** [AI-Powered Portfolio: Full Stack Developer Showcase with Google Gemini & Cloud Run](https://dev.to/kavitaj11/ai-powered-portfolio-full-stack-developer-showcase-with-google-gemini-cloud-run-2aaj)
 
 ## ☁️ Deployment
 This project is configured for **Google Cloud Run** via Workload Identity Federation. See `docs/GCP_DEPLOYMENT_GUIDE.md` for full instructions.
