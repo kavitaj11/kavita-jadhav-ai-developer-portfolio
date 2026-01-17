@@ -185,7 +185,7 @@ const App: React.FC = () => {
 
           {/* Profile Picture */}
           <img
-            src="assets/Screenshots/profile_pic.png"
+            src="/images/profile_pic.png"
             alt="Kavita Jadhav profile"
             className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-white shadow-xl mb-8"
             style={{ background: '#e5e7eb' }}
