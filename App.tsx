@@ -177,12 +177,20 @@ const App: React.FC = () => {
            <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] animate-float"></div>
            <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-purple-600/10 rounded-full blur-[100px] animate-float" style={{ animationDelay: '-3s' }}></div>
         </div>
-        
-        <div className="max-w-4xl mx-auto text-center relative z-10">
+
+        <div className="max-w-4xl mx-auto text-center relative z-10 flex flex-col items-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border-blue-500/10 text-blue-600 dark:text-blue-400 text-[9px] font-bold mb-10 tracking-[0.3em] uppercase opacity-80">
             Kavita Jadhav | Software Engineer 2026
           </div>
-          
+
+          {/* Profile Picture */}
+          <img
+            src="assets/Screenshots/profile_pic.png"
+            alt="Kavita Jadhav profile"
+            className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-white shadow-xl mb-8"
+            style={{ background: '#e5e7eb' }}
+          />
+
           <div className="min-h-[140px] md:min-h-[160px] flex items-center justify-center overflow-hidden">
             <h1 
               key={titleIndex}
@@ -200,7 +208,7 @@ const App: React.FC = () => {
             Dedicated to engineering resilient digital products. 
             Blending high-performance Full Stack architecture with advanced Generative AI and a relentless focus on systemic quality.
           </p>
-          
+
           <div className="flex flex-wrap gap-4 justify-center items-center">
             <a href="#summary" className="px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-black text-[11px] font-bold uppercase tracking-widest rounded-xl hover:shadow-2xl hover:translate-y-[-2px] transition-all">
               Executive Summary
